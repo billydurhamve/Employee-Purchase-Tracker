@@ -1,58 +1,42 @@
-body {
-  font-family: "Poppins", sans-serif;
-  background: #f8f9fb;
-  margin: 0;
-  padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+body { background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
 
-.container {
-  max-width: 600px;
-  margin: 60px auto;
-  background: white;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-}
+.container { max-width: 650px; width: 100%; background: white; padding: 50px 40px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.2); animation: slideIn 0.8s ease forwards; }
+h1 { color: #ff6b6b; font-weight: 700; text-align: center; margin-bottom: 5px; }
+.subtext { font-size: 16px; color: #555; text-align: center; margin-bottom: 30px; }
+.form-group { margin-bottom: 20px; }
+label { display: block; font-weight: 600; margin-bottom: 8px; color: #333; }
+input, select, textarea { width: 100%; padding: 15px 20px; border-radius: 12px; border: 1px solid #ddd; font-size: 15px; transition: all 0.3s ease; }
+input:focus, select:focus, textarea:focus { border-color: #ff6b6b; outline: none; box-shadow: 0 0 8px rgba(255,107,107,0.2); }
+textarea { resize: none; min-height: 80px; }
+button { width: 100%; padding: 18px; background: linear-gradient(90deg, #ff6b6b, #f06595); color: white; border: none; border-radius: 12px; font-size: 18px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
+button:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(255,107,107,0.4); }
 
-h1 {
-  color: #0a66c2;
-  margin-bottom: 10px;
-}
-
-label {
-  display: block;
-  margin-top: 15px;
-  font-weight: 500;
-}
-
-input, select, textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #d1d1d1;
-  border-radius: 5px;
-  margin-top: 5px;
-  font-size: 15px;
-}
-
-button {
-  margin-top: 20px;
-  width: 100%;
-  background: #0a66c2;
+#successScreen {
+  display: flex;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
   color: white;
-  border: none;
-  padding: 12px;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-button:hover {
-  background: #084d96;
-}
-
-#responseMessage {
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   text-align: center;
-  margin-top: 20px;
-  font-weight: 500;
+  font-size: 22px;
+  padding: 20px;
+  animation: fadeIn 0.5s ease forwards;
+}
+#successScreen.hidden { display: none; }
+#successScreen button { background: #ff6b6b; padding: 12px 30px; margin-top: 25px; font-size: 18px; border-radius: 12px; }
+#successScreen button:hover { background: #f06595; transform: scale(1.05); }
+
+/* Animations */
+@keyframes slideIn {
+  0% { transform: translateY(50px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
