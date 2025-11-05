@@ -6,31 +6,28 @@
 }
 
 body {
-  background: linear-gradient(135deg, #001f3f 0%, #000000 100%);
+  background: linear-gradient(135deg, #0a3d62 0%, #000000 100%);
   min-height: 100vh;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  padding: 20px;
   color: #ecf0f1;
+  overflow-y: auto;
+  position: relative;
+  padding: 40px 20px;
 }
 
-/* Background Floating Elements */
+/* Floating Circles */
 .background .circle {
-  position: absolute;
+  position: fixed;
   border-radius: 50%;
-  background: rgba(0, 150, 255, 0.2);
-  animation: float 10s infinite ease-in-out alternate;
+  background: rgba(0, 180, 255, 0.2);
+  z-index: 0;
+  animation: float 8s infinite ease-in-out alternate;
 }
 
 .circle:nth-child(1) {
   width: 180px;
   height: 180px;
-  top: 10%;
+  top: 5%;
   left: 15%;
-  animation-delay: 0s;
 }
 
 .circle:nth-child(2) {
@@ -38,57 +35,55 @@ body {
   height: 250px;
   bottom: 15%;
   right: 10%;
-  background: rgba(0, 200, 255, 0.15);
+  background: rgba(0, 220, 255, 0.15);
   animation-delay: 2s;
 }
 
 .circle:nth-child(3) {
-  width: 100px;
-  height: 100px;
-  top: 60%;
+  width: 120px;
+  height: 120px;
+  top: 65%;
   left: 5%;
-  background: rgba(100, 150, 255, 0.25);
-  animation-delay: 4s;
+  background: rgba(80, 160, 255, 0.25);
+  animation-delay: 3s;
 }
 
 .circle:nth-child(4) {
-  width: 140px;
-  height: 140px;
+  width: 160px;
+  height: 160px;
   bottom: 10%;
   left: 45%;
-  background: rgba(0, 120, 255, 0.18);
-  animation-delay: 6s;
+  background: rgba(0, 130, 255, 0.18);
+  animation-delay: 1s;
 }
 
 @keyframes float {
-  0% { transform: translateY(0px) rotate(0deg); }
-  100% { transform: translateY(-30px) rotate(360deg); }
+  0% { transform: translateY(0px) scale(1); }
+  100% { transform: translateY(-25px) scale(1.05); }
 }
 
-/* Container */
+/* Main Container */
 .container {
-  max-width: 650px;
-  width: 100%;
-  background: rgba(20, 20, 30, 0.9);
+  max-width: 700px;
+  background: rgba(255, 255, 255, 0.1);
   padding: 50px 40px;
   border-radius: 15px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  margin: auto;
   z-index: 2;
-  animation: fadeUp 0.8s ease forwards;
 }
 
 h1 {
   color: #00bcd4;
-  font-weight: 700;
   text-align: center;
+  font-weight: 700;
   margin-bottom: 10px;
 }
 
 .subtext {
-  font-size: 15px;
-  color: #ccc;
   text-align: center;
+  color: #cfd8dc;
   margin-bottom: 30px;
 }
 
@@ -105,10 +100,10 @@ label {
 
 input, select, textarea {
   width: 100%;
-  padding: 14px 20px;
+  padding: 14px 18px;
   border-radius: 8px;
   border: 1px solid #555;
-  background: #1a1a1a;
+  background: #1c1f26;
   color: #ecf0f1;
   font-size: 15px;
   transition: all 0.3s ease;
@@ -116,7 +111,7 @@ input, select, textarea {
 
 input:focus, select:focus, textarea:focus {
   border-color: #00bcd4;
-  box-shadow: 0 0 10px rgba(0, 188, 212, 0.4);
+  box-shadow: 0 0 8px rgba(0, 188, 212, 0.4);
   outline: none;
 }
 
@@ -130,11 +125,11 @@ button {
   width: 100%;
   padding: 16px;
   background: linear-gradient(90deg, #007bff, #00bcd4);
-  color: white;
   border: none;
   border-radius: 8px;
-  font-size: 18px;
+  color: #fff;
   font-weight: 600;
+  font-size: 18px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -144,7 +139,7 @@ button:hover {
   box-shadow: 0 5px 15px rgba(0, 188, 212, 0.4);
 }
 
-/* Success Screen */
+/* Success Overlay */
 #successScreen {
   display: flex;
   position: fixed;
@@ -152,16 +147,15 @@ button:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 20, 40, 0.9);
   color: white;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   text-align: center;
   font-size: 22px;
-  padding: 20px;
-  animation: fadeIn 0.5s ease forwards;
-  z-index: 3;
+  z-index: 5;
+  backdrop-filter: blur(8px);
 }
 
 #successScreen.hidden {
@@ -172,22 +166,12 @@ button:hover {
   background: #00bcd4;
   padding: 12px 30px;
   margin-top: 25px;
-  font-size: 18px;
   border-radius: 8px;
+  font-size: 18px;
+  border: none;
 }
 
 #successScreen button:hover {
   background: #0097a7;
   transform: scale(1.05);
-}
-
-/* Animations */
-@keyframes fadeUp {
-  0% { transform: translateY(50px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
 }
