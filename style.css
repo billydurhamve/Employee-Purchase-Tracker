@@ -6,34 +6,88 @@
 }
 
 body {
-  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  background: linear-gradient(135deg, #001f3f 0%, #000000 100%);
   min-height: 100vh;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   padding: 20px;
+  color: #ecf0f1;
 }
 
+/* Background Floating Elements */
+.background .circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0, 150, 255, 0.2);
+  animation: float 10s infinite ease-in-out alternate;
+}
+
+.circle:nth-child(1) {
+  width: 180px;
+  height: 180px;
+  top: 10%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.circle:nth-child(2) {
+  width: 250px;
+  height: 250px;
+  bottom: 15%;
+  right: 10%;
+  background: rgba(0, 200, 255, 0.15);
+  animation-delay: 2s;
+}
+
+.circle:nth-child(3) {
+  width: 100px;
+  height: 100px;
+  top: 60%;
+  left: 5%;
+  background: rgba(100, 150, 255, 0.25);
+  animation-delay: 4s;
+}
+
+.circle:nth-child(4) {
+  width: 140px;
+  height: 140px;
+  bottom: 10%;
+  left: 45%;
+  background: rgba(0, 120, 255, 0.18);
+  animation-delay: 6s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-30px) rotate(360deg); }
+}
+
+/* Container */
 .container {
   max-width: 650px;
   width: 100%;
-  background: #2c3e50;
+  background: rgba(20, 20, 30, 0.9);
   padding: 50px 40px;
-  border-radius: 10px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-  animation: slideIn 0.8s ease forwards;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  z-index: 2;
+  animation: fadeUp 0.8s ease forwards;
 }
 
 h1 {
-  color: #1abc9c;
+  color: #00bcd4;
   font-weight: 700;
   text-align: center;
   margin-bottom: 10px;
 }
 
 .subtext {
-  font-size: 16px;
-  color: #bdc3c7;
+  font-size: 15px;
+  color: #ccc;
   text-align: center;
   margin-bottom: 30px;
 }
@@ -46,24 +100,24 @@ label {
   display: block;
   font-weight: 600;
   margin-bottom: 8px;
-  color: #ecf0f1;
+  color: #e0e0e0;
 }
 
 input, select, textarea {
   width: 100%;
-  padding: 15px 20px;
+  padding: 14px 20px;
   border-radius: 8px;
-  border: 1px solid #7f8c8d;
-  font-size: 16px;
-  background: #34495e;
+  border: 1px solid #555;
+  background: #1a1a1a;
   color: #ecf0f1;
+  font-size: 15px;
   transition: all 0.3s ease;
 }
 
 input:focus, select:focus, textarea:focus {
-  border-color: #1abc9c;
+  border-color: #00bcd4;
+  box-shadow: 0 0 10px rgba(0, 188, 212, 0.4);
   outline: none;
-  box-shadow: 0 0 8px rgba(26, 188, 156, 0.4);
 }
 
 textarea {
@@ -71,10 +125,11 @@ textarea {
   min-height: 80px;
 }
 
+/* Button */
 button {
   width: 100%;
-  padding: 18px;
-  background: #1abc9c;
+  padding: 16px;
+  background: linear-gradient(90deg, #007bff, #00bcd4);
   color: white;
   border: none;
   border-radius: 8px;
@@ -85,11 +140,11 @@ button {
 }
 
 button:hover {
-  background: #16a085;
   transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(26, 188, 156, 0.4);
+  box-shadow: 0 5px 15px rgba(0, 188, 212, 0.4);
 }
 
+/* Success Screen */
 #successScreen {
   display: flex;
   position: fixed;
@@ -97,7 +152,7 @@ button:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.85);
   color: white;
   align-items: center;
   justify-content: center;
@@ -106,6 +161,7 @@ button:hover {
   font-size: 22px;
   padding: 20px;
   animation: fadeIn 0.5s ease forwards;
+  z-index: 3;
 }
 
 #successScreen.hidden {
@@ -113,7 +169,7 @@ button:hover {
 }
 
 #successScreen button {
-  background: #1abc9c;
+  background: #00bcd4;
   padding: 12px 30px;
   margin-top: 25px;
   font-size: 18px;
@@ -121,29 +177,17 @@ button:hover {
 }
 
 #successScreen button:hover {
-  background: #16a085;
+  background: #0097a7;
   transform: scale(1.05);
 }
 
 /* Animations */
-@keyframes slideIn {
-  0% {
-    transform: translateY(50px);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
+@keyframes fadeUp {
+  0% { transform: translateY(50px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
 
 @keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
