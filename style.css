@@ -6,7 +6,7 @@
 }
 
 body {
-  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -17,23 +17,23 @@ body {
 .container {
   max-width: 650px;
   width: 100%;
-  background: white;
+  background: #2c3e50;
   padding: 50px 40px;
-  border-radius: 20px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
   animation: slideIn 0.8s ease forwards;
 }
 
 h1 {
-  color: #ff6b6b;
+  color: #1abc9c;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .subtext {
   font-size: 16px;
-  color: #555;
+  color: #bdc3c7;
   text-align: center;
   margin-bottom: 30px;
 }
@@ -46,22 +46,24 @@ label {
   display: block;
   font-weight: 600;
   margin-bottom: 8px;
-  color: #333;
+  color: #ecf0f1;
 }
 
 input, select, textarea {
   width: 100%;
   padding: 15px 20px;
-  border-radius: 12px;
-  border: 1px solid #ddd;
-  font-size: 15px;
+  border-radius: 8px;
+  border: 1px solid #7f8c8d;
+  font-size: 16px;
+  background: #34495e;
+  color: #ecf0f1;
   transition: all 0.3s ease;
 }
 
 input:focus, select:focus, textarea:focus {
-  border-color: #ff6b6b;
+  border-color: #1abc9c;
   outline: none;
-  box-shadow: 0 0 8px rgba(255, 107, 107, 0.2);
+  box-shadow: 0 0 8px rgba(26, 188, 156, 0.4);
 }
 
 textarea {
@@ -72,10 +74,10 @@ textarea {
 button {
   width: 100%;
   padding: 18px;
-  background: linear-gradient(90deg, #ff6b6b, #f06595);
+  background: #1abc9c;
   color: white;
   border: none;
-  border-radius: 12px;
+  border-radius: 8px;
   font-size: 18px;
   font-weight: 600;
   cursor: pointer;
@@ -83,8 +85,9 @@ button {
 }
 
 button:hover {
+  background: #16a085;
   transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+  box-shadow: 0 5px 15px rgba(26, 188, 156, 0.4);
 }
 
 #successScreen {
@@ -110,15 +113,15 @@ button:hover {
 }
 
 #successScreen button {
-  background: #ff6b6b;
+  background: #1abc9c;
   padding: 12px 30px;
   margin-top: 25px;
   font-size: 18px;
-  border-radius: 12px;
+  border-radius: 8px;
 }
 
 #successScreen button:hover {
-  background: #f06595;
+  background: #16a085;
   transform: scale(1.05);
 }
 
